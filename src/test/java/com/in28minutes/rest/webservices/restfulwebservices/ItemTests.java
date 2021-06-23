@@ -82,7 +82,7 @@ public class ItemTests {
 		item.setDescription("status updated to true");
 
 		Response response = RestAssured.given()
-				.baseUri("http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/items/7")
+				.baseUri("http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/items/8")
 				.header("Content-Type", ContentType.JSON).body(new Gson().toJson(item)).when().put().then().extract()
 				.response();
 

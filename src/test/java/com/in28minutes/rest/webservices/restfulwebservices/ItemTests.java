@@ -45,7 +45,7 @@ public class ItemTests {
 	@Test
 	public void testSaveItem() {
 		Item item = new Item();
-		item.setId(2);
+		item.setId(1);
 		item.setStatus(true);
 		item.setDescription("test case save");
 

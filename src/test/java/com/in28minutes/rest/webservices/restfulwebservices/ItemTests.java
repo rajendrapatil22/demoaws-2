@@ -45,8 +45,8 @@ public class ItemTests {
 	@Test
 	public void testSaveItem() {
 		Item item = new Item();
-		//item.setId(2);
-		item.setStatus(true);
+		item.setId(2);
+		item.setChecked(true);
 		item.setDescription("test case save");
 
 		Response response = RestAssured.given().contentType(ContentType.JSON).header("Content-Type", ContentType.JSON)
@@ -62,7 +62,7 @@ public class ItemTests {
 	public void testupdateItem() {
 		Item item = new Item();
 		item.setId(3);
-		item.setStatus(true);
+		//item.setChecked(true);
 		item.setDescription("status updated to true");
 
 		Response response = RestAssured.given()

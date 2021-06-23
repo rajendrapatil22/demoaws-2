@@ -45,9 +45,9 @@ public class ItemTests {
 	@Test
 	public void testSaveItem() {
 		Item item = new Item();
-		item.setId(3);
-		item.setChecked(true);
-		item.setDescription("data");
+		//item.setId(2);
+		item.setStatus(true);
+		item.setDescription("test case save");
 
 		Response response = RestAssured.given().contentType(ContentType.JSON).header("Content-Type", ContentType.JSON)
 				.body(new Gson().toJson(item))
@@ -62,8 +62,8 @@ public class ItemTests {
 	public void testupdateItem() {
 		Item item = new Item();
 		item.setId(3);
-		item.setChecked(false);
-		item.setDescription("sdsdsdas");
+		item.setStatus(true);
+		item.setDescription("status updated to true");
 
 		Response response = RestAssured.given()
 				.baseUri("http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/items/1")

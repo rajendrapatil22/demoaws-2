@@ -16,7 +16,7 @@ public class ItemBuilder {
   }
   
   public ItemBuilder checked() {
-    item.setChecked(true);
+    item.setStatus(true);
     return this;
   }
   

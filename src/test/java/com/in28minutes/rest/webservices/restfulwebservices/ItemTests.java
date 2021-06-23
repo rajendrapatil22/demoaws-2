@@ -38,24 +38,22 @@ public class ItemTests {
 
 	}
 	
-	@Test
-	public void getAll() {
-		Response response = given().when().get("http://localhost:5000/items/1")
-				.then().extract().response();
-		assertEquals(200, response.getStatusCode());
-
-	}
-	// RestAssured get By Item
-	@Test
-	public void getById() {
-		Response response = given().when().get("http://localhost:5000/items/1")
-				.then().extract().response();
-	   // typecasting obj to JSONObject
-		Item item = new Gson().fromJson(response.getBody().asString(), Item.class);
-		//jsonObject=(JsonObject) json.parse(response.getBody().asString());
-		assertEquals(false,item.getStatus());
-
-	}
+	/*
+	 * @Test public void getAll() { Response response =
+	 * given().when().get("http://localhost:5000/items/1")
+	 * .then().extract().response(); assertEquals(200, response.getStatusCode());
+	 * 
+	 * } // RestAssured get By Item
+	 * 
+	 * @Test public void getById() { Response response =
+	 * given().when().get("http://localhost:5000/items/1")
+	 * .then().extract().response(); // typecasting obj to JSONObject Item item =
+	 * new Gson().fromJson(response.getBody().asString(), Item.class);
+	 * //jsonObject=(JsonObject) json.parse(response.getBody().asString());
+	 * assertEquals(false,item.getStatus());
+	 * 
+	 * }
+	 */
 	
 
 	// Save Data to Item

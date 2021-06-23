@@ -70,7 +70,7 @@ public class ItemTests {
 	 "http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/items").then().
 	  extract().response();
 	 
-	 assertEquals(200, response.getStatusCode()); }
+	 assertEquals(400, response.getStatusCode()); }
 	 
 	 //Update to Item
 	 

@@ -1,33 +1,19 @@
 package com.in28minutes.rest.webservices.restfulwebservices;
 
 import static io.restassured.RestAssured.given;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.hasItem;
-import static org.hamcrest.CoreMatchers.hasItems;
 import static org.junit.Assert.assertEquals;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.verify;
-
-import java.util.Arrays;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.ArgumentCaptor;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.google.gson.Gson;
+import com.in28minutes.rest.webservices.restfulwebservices.helloworld.Item;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import com.in28minutes.rest.webservices.restfulwebservices.helloworld.Item;
-import com.in28minutes.rest.webservices.restfulwebservices.helloworld.ItemController;
-import com.in28minutes.rest.webservices.restfulwebservices.helloworld.ItemRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

@@ -27,41 +27,41 @@ public class ItemTests {
 	private static final Item UNCHECKED_ITEM = new ItemBuilder().id(2).checked().build();
 	private static final Item NEW_ITEM = new ItemBuilder().checked().build();
 	// RestAssured get All Item
-	
+
 	@Test
 	public void databaseexistOrNot() {
-		Response response = given().when().get("http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/h2-console/")
-				.then().extract().response();
-	   
-		
-		assertEquals(200,response.getStatusCode());
+		Response response = given().when()
+				.get("http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/h2-console/").then().extract()
+				.response();
+
+		assertEquals(200, response.getStatusCode());
 
 	}
+
+	@Test
+	public void getAll() {
+		Response response = given().when().get("http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/items/")
+				.then().extract().response();
+		assertEquals(200, response.getStatusCode());
+
+	} // RestAssured get By Item
+
+	@Test
+	public void getById() {
+		Response response = given().when().get("http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/items/7")
+				.then().extract().response(); // typecasting obj to JSONObject
+		Item item = new Gson().fromJson(response.getBody().asString(), Item.class);
 	
-	/*
-	 * @Test public void getAll() { Response response =
-	 * given().when().get("http://localhost:5000/items/1")
-	 * .then().extract().response(); assertEquals(200, response.getStatusCode());
-	 * 
-	 * } // RestAssured get By Item
-	 * 
-	 * @Test public void getById() { Response response =
-	 * given().when().get("http://localhost:5000/items/1")
-	 * .then().extract().response(); // typecasting obj to JSONObject Item item =
-	 * new Gson().fromJson(response.getBody().asString(), Item.class);
-	 * //jsonObject=(JsonObject) json.parse(response.getBody().asString());
-	 * assertEquals(false,item.getStatus());
-	 * 
-	 * }
-	 */
-	
+		assertEquals(true, item.getStatus());
+
+	}
 
 	// Save Data to Item
 
 	@Test
 	public void testSaveItem() {
 		Item item = new Item();
-		item.setId(1);
+		//item.setId(1);
 		item.setStatus(true);
 		item.setDescription("test case save");
 
@@ -74,16 +74,19 @@ public class ItemTests {
 
 	// Update to Item
 
-	/*
-	 * @Test public void testupdateItem() { Item item = new Item(); item.setId(3);
-	 * //item.setChecked(true); item.setDescription("status updated to true");
-	 * 
-	 * Response response = RestAssured.given() .baseUri(
-	 * "http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/items/1")
-	 * .header("Content-Type", ContentType.JSON).body(new
-	 * Gson().toJson(item)).when().put().then().extract() .response();
-	 * 
-	 * assertEquals(200, response.getStatusCode()); }
-	 */
+	@Test
+	public void testupdateItem() {
+		Item item = new Item();
+		item.setId(7);
+		item.setStatus(true);
+		item.setDescription("status updated to true");
+
+		Response response = RestAssured.given()
+				.baseUri("http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/items/7")
+				.header("Content-Type", ContentType.JSON).body(new Gson().toJson(item)).when().put().then().extract()
+				.response();
+
+		assertEquals(200, response.getStatusCode());
+	}
 
 }

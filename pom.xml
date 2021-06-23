@@ -72,11 +72,7 @@
 <!-- https://mvnrepository.com/artifact/org.testng/testng -->
 
 <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
-<dependency>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-surefire-plugin</artifactId>
-    <version>3.0.0-M3</version>
-</dependency>
+
 
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
@@ -124,7 +120,14 @@
 </configuration>
 </execution>
 </executions>
-</plugin>
+</plugin> <plugin>
+      <artifactId>maven-surefire-plugin</artifactId>
+      <version>3.0.0-M5</version>
+      <configuration>
+        <!-- Activate the use of TCP to transmit events to the plugin -->
+        <forkNode implementation="org.apache.maven.plugin.surefire.extensions.SurefireForkNodeFactory"/>
+      </configuration>
+    </plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

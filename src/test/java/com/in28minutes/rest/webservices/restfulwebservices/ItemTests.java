@@ -77,7 +77,7 @@ public class ItemTests {
 	@Test
 	public void testupdateItem() {
 		Item item = new Item();
-		item.setId(7);
+		item.setId(8);
 		item.setStatus(true);
 		item.setDescription("status updated to true");
 

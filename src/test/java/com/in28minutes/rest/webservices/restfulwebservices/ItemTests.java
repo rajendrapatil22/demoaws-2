@@ -38,7 +38,7 @@ public class ItemTests {
 	public void testItemList() {
 		Response resp = (Response) RestAssured.given().when()
 				.get("http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/items").then().extract().response();
-		assertEquals(500, resp.getStatusCode());
+		assertEquals(502, resp.getStatusCode());
 	}
 
 	// Save Data to Item

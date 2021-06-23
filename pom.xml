@@ -82,6 +82,12 @@
 
 <!-- https://mvnrepository.com/artifact/org.testng/testng -->
 
+<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
+<dependency>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>3.0.0-M3</version>
+</dependency>
 
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
@@ -113,12 +119,7 @@
 
 	<build>
 		<plugins>
-		<plugin>
-<groupId>org.apache.maven.plugins</groupId>
-<artifactId>maven-surefire-plugin</artifactId>
-<version>3.6.0</version>
-
-</plugin>
+		
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

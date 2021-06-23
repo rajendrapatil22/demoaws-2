@@ -86,7 +86,7 @@ public class ItemTests {
 				.header("Content-Type", ContentType.JSON).body(new Gson().toJson(item)).when().put().then().extract()
 				.response();
 
-		assertEquals(200, response.getStatusCode());
+		assertEquals(500, response.getStatusCode());
 	}
 
 }

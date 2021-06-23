@@ -38,7 +38,7 @@ public class ItemController {
   @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
   public Item updateItem(@RequestBody Item updatedItem, @PathVariable Integer id) {
     Item item = repo.getOne(id);
-    item.setChecked(updatedItem.isChecked());
+    item.setStatus(updatedItem.getStatus());
     item.setDescription(updatedItem.getDescription());
     return repo.saveAndFlush(item);
   }

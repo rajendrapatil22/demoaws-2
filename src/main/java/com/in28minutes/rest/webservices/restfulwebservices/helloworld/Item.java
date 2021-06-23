@@ -9,7 +9,7 @@ public class Item {
   @GeneratedValue(strategy=GenerationType.IDENTITY)
   private int id;
   @Column
-  private boolean checked;
+  private boolean status;
   @Column
   private String description;
 
@@ -21,12 +21,12 @@ public class Item {
     this.id = id;
   }
 
-  public boolean isChecked() {
-    return checked;
+  public boolean getStatus() {
+    return status;
   }
 
-  public void setChecked(boolean checked) {
-    this.checked = checked;
+  public void setStatus(boolean status) {
+    this.status = status;
   }
 
   public String getDescription() {

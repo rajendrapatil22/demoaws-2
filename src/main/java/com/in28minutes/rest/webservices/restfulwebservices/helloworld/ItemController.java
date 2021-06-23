@@ -16,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -29,6 +30,14 @@ public class ItemController {
     return repo.findAll();
   }
 
+  @RequestMapping(value = "/{id}",method = RequestMethod.GET)
+  public Optional < Item > findById(@PathVariable  Integer id) {
+	  if(!repo.findById(id).isPresent()) {
+		  return null;
+      }
+	
+	  return repo.findById(id);
+  }
   @RequestMapping(method = RequestMethod.POST)
   public Item addItem(@RequestBody Item item) {
     //item.setId(null);

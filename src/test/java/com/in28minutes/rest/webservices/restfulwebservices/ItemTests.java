@@ -3,12 +3,16 @@ package com.in28minutes.rest.webservices.restfulwebservices;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
+import org.hibernate.mapping.Map;
+import org.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.in28minutes.rest.webservices.restfulwebservices.helloworld.Item;
 
 import io.restassured.RestAssured;
@@ -22,23 +26,37 @@ public class ItemTests {
 	private static final Item CHECKED_ITEM = new ItemBuilder().id(CHECKED_ITEM_ID).checked().build();
 	private static final Item UNCHECKED_ITEM = new ItemBuilder().id(2).checked().build();
 	private static final Item NEW_ITEM = new ItemBuilder().checked().build();
-
+	// RestAssured get All Item
+	
 	@Test
+	public void databaseexistOrNot() {
+		Response response = given().when().get("http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/h2-console/")
+				.then().extract().response();
+	   
+		
+		assertEquals(200,response.getStatusCode());
 
-	public void getByIdKO() {
-		Response response = given().when().get("http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/items")
+	}
+	
+	@Test
+	public void getAll() {
+		Response response = given().when().get("http://localhost:5000/items/1")
 				.then().extract().response();
 		assertEquals(200, response.getStatusCode());
 
 	}
-	// RestAssured get All Item
-
+	// RestAssured get By Item
 	@Test
-	public void testItemList() {
-		Response resp = (Response) RestAssured.given().when()
-				.get("http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/items").then().extract().response();
-		assertEquals(200, resp.getStatusCode());
+	public void getById() {
+		Response response = given().when().get("http://localhost:5000/items/1")
+				.then().extract().response();
+	   // typecasting obj to JSONObject
+		Item item = new Gson().fromJson(response.getBody().asString(), Item.class);
+		//jsonObject=(JsonObject) json.parse(response.getBody().asString());
+		assertEquals(false,item.getStatus());
+
 	}
+	
 
 	// Save Data to Item
 

@@ -23,14 +23,15 @@ public class ItemTests {
 	private static final Item UNCHECKED_ITEM = new ItemBuilder().id(2).checked().build();
 	private static final Item NEW_ITEM = new ItemBuilder().checked().build();
 
-	@Test
-
-	public void getByIdKO() {
-		Response response = given().when().get("http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/items")
-				.then().extract().response();
-		assertEquals(500, response.getStatusCode());
-
-	}
+	/*
+	 * @Test
+	 * 
+	 * public void getByIdKO() { Response response = given().when().get(
+	 * "http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/items")
+	 * .then().extract().response(); assertEquals(500, response.getStatusCode());
+	 * 
+	 * }
+	 */
 	// RestAssured get All Item
 
 	@Test

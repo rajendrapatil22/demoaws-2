@@ -28,7 +28,7 @@ public class ItemTests {
 	public void getByIdKO() {
 		Response response = given().when().get("http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/items")
 				.then().extract().response();
-		assertEquals(200, response.getStatusCode());
+		assertEquals(500, response.getStatusCode());
 
 	}
 	// RestAssured get All Item

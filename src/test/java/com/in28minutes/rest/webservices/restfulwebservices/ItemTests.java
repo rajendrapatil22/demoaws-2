@@ -74,19 +74,16 @@ public class ItemTests {
 
 	// Update to Item
 
-	@Test
-	public void testupdateItem() {
-		Item item = new Item();
-		item.setId(3);
-		//item.setChecked(true);
-		item.setDescription("status updated to true");
-
-		Response response = RestAssured.given()
-				.baseUri("http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/items/1")
-				.header("Content-Type", ContentType.JSON).body(new Gson().toJson(item)).when().put().then().extract()
-				.response();
-
-		assertEquals(200, response.getStatusCode());
-	}
+	/*
+	 * @Test public void testupdateItem() { Item item = new Item(); item.setId(3);
+	 * //item.setChecked(true); item.setDescription("status updated to true");
+	 * 
+	 * Response response = RestAssured.given() .baseUri(
+	 * "http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/items/1")
+	 * .header("Content-Type", ContentType.JSON).body(new
+	 * Gson().toJson(item)).when().put().then().extract() .response();
+	 * 
+	 * assertEquals(200, response.getStatusCode()); }
+	 */
 
 }

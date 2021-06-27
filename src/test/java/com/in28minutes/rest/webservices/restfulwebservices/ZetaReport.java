@@ -22,11 +22,7 @@ public class ZetaReport {
 		bufferedWriter = new BufferedWriter(new FileWriter(fileObj));
 		bufferedWriter.write("<html><body><h1>Test Case Result!</h1>");
 		
-		bufferedWriter.write("<!DOCTYPE html>\r\n" + "<html>\r\n" + "<head>" + "<style>\r\n" + "table {\r\n"
-				+ "  font-family: arial, sans-serif;\r\n" + "  border-collapse: collapse;\r\n" + "  width: 100%;\r\n"
-				+ "}\r\n" + "\r\n" + "td, th {\r\n" + "  border: 1px solid #dddddd;\r\n" + "  text-align: left;\r\n"
-				+ "  padding: 8px;\r\n" + "}\r\n" + "\r\n" + "tr:nth-child(even) {\r\n"
-				+ "  background-color: #dddddd;\r\n" + "}\r\n" + "</style>\r\n" + "</head>\r\n" + "<body>\r\n" + "\r\n"
+		bufferedWriter.write("<!DOCTYPE html>\r\n" + "<html>\r\n" + "<head></head>\r\n" + "<body>\r\n" + "\r\n"
 				+ "<table><tr><td><div id=\"piechart\"></div></td><td><div id=\"barchart\"></td></div><table><tr>\r\n"
 				+ "    <th>TestCaseId</th>\r\n" + "    <th>TestCase Description</th>\r\n"
 				+ "    <th>Status</th>\r\n" + "  </tr>");

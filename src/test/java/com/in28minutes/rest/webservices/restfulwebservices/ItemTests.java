@@ -1,35 +1,24 @@
 package com.in28minutes.rest.webservices.restfulwebservices;
 
 import static io.restassured.RestAssured.given;
-import static org.junit.Assert.assertEquals;
 
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 
-import org.hibernate.mapping.Map;
-import org.json.JSONObject;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.in28minutes.rest.webservices.restfulwebservices.helloworld.Item;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import io.qameta.allure.restassured.AllureRestAssured;
-import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 @RunWith(SpringRunner.class)
@@ -53,7 +42,6 @@ public class ItemTests {
 	 */
 	static ExtentTest test;
 	static ExtentReports report;
-	private static ApplicationProperties properties;
 
 	
 	@Before

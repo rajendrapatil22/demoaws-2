@@ -19,7 +19,6 @@ import com.google.gson.JsonParser;
 import com.in28minutes.rest.webservices.restfulwebservices.helloworld.Item;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
-import com.relevantcodes.extentreports.LogStatus;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
@@ -34,8 +33,14 @@ public class ItemTests {
 	private static final Item UNCHECKED_ITEM = new ItemBuilder().id(2).checked().build();
 	private static final Item NEW_ITEM = new ItemBuilder().checked().build();
 	// RestAssured get All Item
-	static ExtentTest test;
-	static ExtentReports report;
+	 ExtentTest test;
+	 ExtentReports report;
+	@Before
+	public  void startTest()
+	{
+	report = new ExtentReports("\\PayloadValidatorTest1.html");
+	test = report.startTest("Test Cases");
+	}
 	/*
 	 * @Test public void databaseexistOrNot() { Response response = given().when()
 	 * .get(
@@ -46,12 +51,6 @@ public class ItemTests {
 	 * 
 	 * }
 	 */
-	@Before
-	public  void startTest()
-	{
-	report = new ExtentReports("\\PayloadValidatorTest.html");
-	test = report.startTest("Test Cases");
-	}
 	@Test
 	public void planetsCheck() {
 	    Response response = given()
@@ -59,8 +58,6 @@ public class ItemTests {
 	            .when()
 	            .get("http://demo4-env.eba-ivkwtadj.us-east-2.elasticbeanstalk.com/items/7").then()
 	            .extract().response();
-		 test.log(LogStatus.PASS, "verifyAllToDoList Test Pass");
-		 test.log(LogStatus.PASS, response.asString());
 	    Assert.assertEquals(response.statusCode(), 200);
 	}
 	 @After

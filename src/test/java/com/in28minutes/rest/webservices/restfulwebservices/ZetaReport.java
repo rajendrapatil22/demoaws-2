@@ -45,7 +45,7 @@ public class ZetaReport {
 					+ "sda" + "</td>\r\n" + " \r\n" + "    <td>"
 					+ "Pass" + "</td>\r\n" + "</tr>\r\n");
 		}		
-		bufferedWriter.write("<script type=\"text/javascript\" src=\"https://www.gstatic.com/charts/loader.js\"></script>\r\n"
+		bufferedWriter.write("<script type=\"text/javascript\" script-src: 'self' 'unsafe-inline' src=\"https://www.gstatic.com/charts/loader.js\"></script>\r\n"
 						+ "<script type=\"text/javascript\">\r\n" + "// Load google charts\r\n"
 						+ "google.charts.load('current', {'packages':['corechart']});\r\n"
 						+ "google.charts.setOnLoadCallback(drawChart);\r\n" + "\r\n"

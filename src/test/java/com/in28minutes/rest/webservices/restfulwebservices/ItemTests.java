@@ -85,7 +85,7 @@ arr.add(result);
 	 new Gson().fromJson(response.getBody().asString(), Item.class);
 	// result.setId(3);
 	 
-	if(item.getStatus()==true) {
+	if(item.getStatus()==false) {
 		 result.setStatus("fail");
 
 		 result.setTestCaseName("getbyId");
@@ -104,7 +104,7 @@ arr.add(result);
 		 
 				 	 	 
 	}else {
-
+result.setStatus("Pass");
 		 result.setTestCaseName("getbyId");
 		 result.setResponse(response.asString());
 		 arr.add(result);

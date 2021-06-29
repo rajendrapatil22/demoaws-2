@@ -100,7 +100,7 @@ arr.add(result);
 		 		""); 
 		 arr.add(result); 
 		 //new ZetaReport().createReport(arr);
-		 assertEquals(false, item.getStatus());
+		 assertEquals(true, item.getStatus());
 		 
 				 	 	 
 	}else {

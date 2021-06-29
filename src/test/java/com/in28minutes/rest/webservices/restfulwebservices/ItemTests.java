@@ -40,7 +40,8 @@ public class ItemTests {
 HashMap<String, String> map=new HashMap<String, String>();
 Result result=new Result();
 static ArrayList<Result> arr;
- @org.junit.BeforeClass
+static String status=""; 
+@org.junit.BeforeClass
 public static void startTest()
 {
 	arr=new ArrayList<Result>();
@@ -100,14 +101,16 @@ arr.add(result);
 		 		""); 
 		 arr.add(result); 
 		 //new ZetaReport().createReport(arr);
+		 new ZetaReport().createReportFail(arr);
 		 assertEquals(true, item.getStatus());
 		 
-				 	 	 
+				 status="Fail";	 	 
 	}else {
-result.setStatus("Pass");
+		 result.setStatus("Pass");
 		 result.setTestCaseName("getbyId");
 		 result.setResponse(response.asString());
 		 arr.add(result);
+		 new ZetaReport().createReport(arr);  
 		 assertEquals(true, item.getStatus());
 	// new ZetaReport().createReport(arr);
 	 }
@@ -132,11 +135,7 @@ result.setStatus("Pass");
 	 
 	
 	  }
-	  @AfterClass
-	    public static  void endTest() throws Exception
-	    {
-		  new ZetaReport().createReport(arr);
-	    }
+	 
 	 // Update to Item
 	 
 	/*
